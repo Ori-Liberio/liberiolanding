@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Chosen Palette: Subtle Corporate Harmony -->
+    <!-- Application Structure Plan: The application is designed as a top-to-bottom narrative scroll, guiding the user through a logical story. It starts with the problem (The Crisis), quantifies its impact (The Cost), introduces the solution (The ROI), defines the opportunity (The Market), analyzes the competition (The Landscape), and details the execution plan (The Strategy). This linear, story-driven structure is more engaging and persuasive for an investor or executive audience than a simple dashboard, as it builds a case step-by-step. Key interactions include hover effects on charts and scroll-triggered animations to enhance engagement without distracting from the core message. -->
+    <!-- Visualization & Content Choices: 
+        - The Crisis (Quotes): Goal: Inform. Method: Styled HTML cards to give weight to qualitative pain points. Justification: More impactful than plain text for emotional resonance.
+        - Hot Potato Flow: Goal: Organize. Method: HTML/CSS diagram using flexbox and borders. Justification: Clearly illustrates the dysfunctional process without using prohibited SVG/Mermaid.
+        - Financial Impact: Goal: Compare. Method: Chart.js Bar Chart. Justification: Best for comparing the distinct components of the total financial drain.
+        - ROI Metrics: Goal: Inform. Method: Chart.js Doughnut Charts. Justification: Excellent for showing simple, powerful percentage-based KPIs in a visually appealing way.
+        - Market Growth: Goal: Change. Method: Chart.js Line Chart. Justification: Ideal for showing market trends and growth over time.
+        - Competitive Landscape: Goal: Organize/Compare. Method: HTML/CSS Grid layout. Justification: Creates a clear 2x2 style matrix to position Liberio against "Builders" and "Monitors" without a complex chart.
+        - GTM Sales Motion: Goal: Organize. Method: HTML/CSS ordered list diagram. Justification: Simple, clear visualization of a linear process.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <title>Liberio AI | Interactive Strategic Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #343A40; }
+        .bg-primary { background-color: #0077B6; }
+        .text-primary { color: #0077B6; }
+        .border-primary { border-color: #0077B6; }
+        .bg-accent { background-color: #ADE8F4; }
+        .text-accent { color: #ADE8F4; }
+        .bg-secondary { background-color: #495057; }
+        .text-secondary { color: #495057; }
+        .card { background-color: #FFFFFF; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); padding: 2rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1); }
+        .chart-container { position: relative; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; height: 400px; max-height: 450px; }
+        @media (max-width: 768px) { .chart-container { height: 350px; } }
+        .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .is-visible { opacity: 1; transform: translateY(0); }
+        .nav-link { transition: color 0.3s; }
+        .nav-link:hover { color: #00B4D8; }
+        .active-link { color: #0077B6; font-weight: 600; }
+    </style>
+
+</head>
+<!-- FullStory Analytics -->
+<script>
+    window['_fs_host'] = 'fullstory.com';
+    window['_fs_script'] = 'edge.fullstory.com/s/fs.js';
+    window['_fs_org'] = 'o-23F6MN-na1';
+    window['_fs_namespace'] = 'FS';
+    !function(m,n,e,t,l,o,g,y){var s,f,a=function(h){
+    return!(h in m)||(m.console&&m.console.log&&m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].'),!1)}(e)
+    ;function p(b){var h,d=[];function j(){h&&(d.forEach((function(b){var d;try{d=b[h[0]]&&b[h[0]](h[1])}catch(h){return void(b[3]&&b[3](h))}
+    d&&d.then?d.then(b[2],b[3]):b[2]&&b[2](d)})),d.length=0)}function r(b){return function(d){h||(h=[b,d],j())}}return b(r(0),r(1)),{
+    then:function(b,h){return p((function(r,i){d.push([b,h,r,i]),j()}))}}}a&&(g=m[e]=function(){var b=function(b,d,j,r){function i(i,c){
+    h(b,d,j,i,c,r)}r=r||2;var c,u=/Async$/;return u.test(b)?(b=b.replace(u,""),"function"==typeof Promise?new Promise(i):p(i)):h(b,d,j,c,c,r)}
+    ;function h(h,d,j,r,i,c){return b._api?b._api(h,d,j,r,i,c):(b.q&&b.q.push([h,d,j,r,i,c]),null)}return b.q=[],b}(),y=function(b){function h(h){
+    "function"==typeof h[4]&&h[4](new Error(b))}var d=g.q;if(d){for(var j=0;j<d.length;j++)h(d[j]);d.length=0,d.push=h}},function(){
+    (o=n.createElement(t)).async=!0,o.crossOrigin="anonymous",o.src="https://"+l,o.onerror=function(){y("Error loading "+l)}
+    ;var b=n.getElementsByTagName(t)[0];b&&b.parentNode?b.parentNode.insertBefore(o,b):n.head.appendChild(o)}(),function(){function b(){}
+    function h(b,h,d){g(b,h,d,1)}function d(b,h,j){g("setProperties",{type:b,properties:h},j)}function j(b,h){d("user",b,h)}function r(b,h,d){j({
+    uid:b},d),h&&j(h,d)}g.identify=r,g.setUserVars=j,g.identifyAccount=b,g.clearUserCookie=b,g.setVars=d,g.event=function(b,d,j){h("trackEvent",{
+    name:b,properties:d},j)},g.anonymize=function(){r(!1)},g.shutdown=function(){h("shutdown")},g.restart=function(){h("restart")},
+    g.log=function(b,d){h("log",{level:b,msg:d})},g.consent=function(b){h("setIdentity",{consent:!arguments.length||b})}}(),s="fetch",
+    f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){return g._w[s].apply(this,arguments)}),g._v="2.0.0")
+    }(window,document,window._fs_namespace,"script",window._fs_script);
+    
+    // Set user identity - replace with actual user data
+    FS.identify('USER_ID_HERE', {
+      displayName: 'Tal',
+      email: 'tal@liberio.ai'
+      // Add other user properties as needed
+    });
+</script>
+
+<!--Mixpanel tag -->
+    
+<script type="text/javascript">
+(function (f, b) { if (!b.__SV) { 
+    var e, g, i, h; window.mixpanel = b; b._i = []; b.init = function (e, f, c) 
+    { function g(a, d) { var b = d.split("."); 2 == b.length && ((a = a[b[0]]), (d = b[1])); a[d] = function () 
+    { a.push([d].concat(Array.prototype.slice.call(arguments, 0))); }; } var a = b; "undefined" !== typeof c ? (a = b[c] = []) : (c = "mixpanel"); a.people = a.people || []; a.toString = function (a) 
+    { var d = "mixpanel"; "mixpanel" !== c && (d += "." + c); a || (d += " (stub)"); return d; }; a.people.toString = function () 
+    { return a.toString(1) + ".people (stub)"; }; i = "disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split( " "); for (h = 0; h < i.length; h++) g(a, i[h]); var j = "set set_once union unset remove delete".split(" "); a.get_group = function () { function b(c) { d[c] = function () { call2_args = arguments; call2 = [c].concat(Array.prototype.slice.call(call2_args, 0)); a.push([e, call2]); }; } for ( var d = {}, e = ["get_group"].concat( Array.prototype.slice.call(arguments, 0)), c = 0; c < j.length; c++) b(j[c]); return d; }; b._i.push([e, f, c]); }; b.__SV = 1.2; e = f.createElement("script"); e.type = "text/javascript"; e.async = !0; e.src = "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL ? MIXPANEL_CUSTOM_LIB_URL : "file:" === f.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; g = f.getElementsByTagName("script")[0]; g.parentNode.insertBefore(e, g); } })(document, window.mixpanel || []);
+
+ </script>  
+<body class="antialiased">
+
+    <nav id="navbar" class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl font-bold text-primary">Liberio AI</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#crisis" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-secondary">The Crisis</a>
+                        <a href="#cost" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-secondary">The Cost</a>
+                        <a href="#solution" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-secondary">The Solution</a>
+                        <a href="#market" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-secondary">The Market</a>
+                        <a href="#landscape" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-secondary">Landscape</a>
+                        <a href="#gtm" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-secondary">GTM Strategy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <header class="text-center mb-20">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-secondary leading-tight">Closing the Agentic Velocity Gap</h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">An interactive analysis of the T3 support crisis and the strategic imperative for autonomous investigation.</p>
+        </header>
+
+        <section id="crisis" class="mb-24 fade-in-section">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-secondary">The Systemic Crisis in T3 Support</h2>
+                <p class="mt-2 text-lg text-gray-600">These aren't just anecdotes; they are symptoms of a deep, quantifiable dysfunction.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                 <div class="card bg-blue-50 border-l-4 border-primary">
+                    <p class="text-lg font-semibold text-secondary">The "Hot Potato Tier"</p>
+                    <blockquote class="mt-2 text-gray-700 italic">"...this is the hot potato tier here passes from R&D to Support and back, hard to handle."</blockquote>
+                </div>
+                <div class="card bg-blue-50 border-l-4 border-primary">
+                    <p class="text-lg font-semibold text-secondary">The Talent Drain</p>
+                    <blockquote class="mt-2 text-gray-700 italic">"We have one experienced engineer... it is hard to find good T3 employees and churn a lot."</blockquote>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="text-xl font-bold text-center text-secondary mb-8">Anatomy of the "Hot Potato" Dynamic</h3>
+                 <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 text-center">
+                    <div class="p-4 bg-gray-100 rounded-lg w-full md:w-1/4">
+                        <h4 class="font-bold">T1/T2 Escalation</h4>
+                        <p class="text-sm text-gray-600">Lacks detailed data, incomplete context.</p>
+                    </div>
+                    <div class="text-4xl text-primary font-bold transform md:rotate-0 rotate-90">&rarr;</div>
+                    <div class="p-6 bg-accent rounded-lg w-full md:w-1/3 border-2 border-primary shadow-xl">
+                        <h4 class="font-bold text-lg text-primary">TIER 3 BOTTLENECK</h4>
+                        <ul class="text-sm text-gray-700 mt-2 list-disc list-inside text-left">
+                           <li>Manual data hunting</li>
+                           <li>Context-switching</li>
+                           <li>Engineer burnout</li>
+                        </ul>
+                    </div>
+                     <div class="text-4xl text-primary font-bold transform md:rotate-0 rotate-90">&harr;</div>
+                     <div class="p-4 bg-gray-100 rounded-lg w-full md:w-1/4">
+                        <h4 class="font-bold">R&D Pushback</h4>
+                        <p class="text-sm text-gray-600">Insufficient data requires re-investigation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cost" class="mb-24 fade-in-section">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-secondary">The $2 Million Hidden Tax on Your Business</h2>
+                <p class="mt-2 text-lg text-gray-600">The inefficiency isn't just frustrating; it's a massive, quantifiable drain on resources.</p>
+            </div>
+            <div class="card">
+                <div class="chart-container">
+                    <canvas id="financialImpactChart"></canvas>
+                </div>
+                 <div class="text-center mt-6">
+                    <p class="text-gray-600">Based on a sample mid-market company with 10 T3 and 50 R&D engineers.</p>
+                    <p class="mt-4 text-xl font-bold text-primary">Liberio's Potential Annual Savings: >$400,000</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="mb-24 fade-in-section">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-secondary">The Solution: An Autonomous Virtual Team Member</h2>
+                <p class="mt-2 text-lg text-gray-600">Liberio delivers tangible ROI by directly attacking the root causes of inefficiency.</p>
+            </div>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card text-center">
+                    <h3 class="text-lg font-bold text-secondary">MTTR Reduction</h3>
+                    <div class="h-48 w-48 mx-auto my-4"><canvas id="mttrChart"></canvas></div>
+                    <p class="text-gray-600">Boost customer satisfaction and reduce SLA penalties.</p>
+                </div>
+                <div class="card text-center">
+                    <h3 class="text-lg font-bold text-secondary">T3 to R&D Escalations</h3>
+                     <div class="h-48 w-48 mx-auto my-4"><canvas id="t3EscalationChart"></canvas></div>
+                    <p class="text-gray-600">Free up costly R&D cycles to focus on innovation.</p>
+                </div>
+                 <div class="card text-center">
+                    <h3 class="text-lg font-bold text-secondary">R&D Productivity Gain</h3>
+                     <div class="h-48 w-48 mx-auto my-4"><canvas id="rndTimeChart"></canvas></div>
+                    <p class="text-gray-600">Reclaim senior developer time lost to unplanned work.</p>
+                </div>
+                 <div class="card text-center">
+                    <h3 class="text-lg font-bold text-secondary">T2 to T3 Escalations</h3>
+                     <div class="h-48 w-48 mx-auto my-4"><canvas id="t2EscalationChart"></canvas></div>
+                    <p class="text-gray-600">Upskill lower tiers with an enriched knowledge base.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="market" class="mb-24 fade-in-section">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-secondary">A Multi-Billion Dollar Opportunity</h2>
+                <p class="mt-2 text-lg text-gray-600">Liberio operates at the confluence of several massive, high-growth technology markets.</p>
+            </div>
+            <div class="card">
+                 <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                    <div class="lg:col-span-3">
+                         <h3 class="text-xl font-bold text-center text-secondary mb-4">Adjacent Market Growth (Projected)</h3>
+                         <div class="chart-container h-80">
+                            <canvas id="marketGrowthChart"></canvas>
+                        </div>
+                    </div>
+                     <div class="lg:col-span-2 flex flex-col justify-center text-center p-6 bg-gray-50 rounded-lg">
+                        <h3 class="text-xl font-bold text-secondary">Liberio's Niche</h3>
+                        <p class="my-4 text-6xl font-extrabold text-primary">$7.2B+</p>
+                        <p class="text-gray-600">Enlarged Total Addressable Market, validated by strong tailwinds in AIOps and Process Automation.</p>
+                    </div>
+                 </div>
+            </div>
+        </section>
+        
+        <section id="landscape" class="mb-24 fade-in-section">
+             <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-secondary">A Clear and Defensible Niche</h2>
+                <p class="mt-2 text-lg text-gray-600">The market is bifurcated, leaving a valuable white space for a specialized agent.</p>
+            </div>
+            <div class="card">
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200 rounded-lg overflow-hidden">
+                    <div class="bg-white p-6">
+                        <h4 class="font-bold text-xl text-secondary">The "Builders" (R&D Centric)</h4>
+                        <p class="text-gray-600 mt-1">AI agents that generate or fix code in a repository.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded">Devin AI</span>
+                            <span class="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded">SWE-agent</span>
+                            <span class="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded">Bito</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6">
+                         <h4 class="font-bold text-xl text-secondary">The "Monitors" (Broad Platforms)</h4>
+                         <p class="text-gray-600 mt-1">Platforms that identify *that* a problem exists.</p>
+                         <div class="mt-4 flex flex-wrap gap-2">
+                             <span class="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded">Datadog</span>
+                             <span class="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded">Dynatrace</span>
+                             <span class="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded">Splunk</span>
+                         </div>
+                    </div>
+                     <div class="md:col-span-2 bg-gradient-to-r from-blue-100 to-cyan-100 p-8 text-center">
+                        <h4 class="text-2xl font-bold text-primary">Liberio AI: The Production Specialist</h4>
+                        <p class="mt-2 text-lg text-gray-700 max-w-3xl mx-auto">The only autonomous agent performing the end-to-end T3 investigation job, bridging the gap between monitoring and code generation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gtm" class="mb-12 fade-in-section">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-secondary">Go-to-Market: A Strategic Sales Motion</h2>
+                <p class="mt-2 text-lg text-gray-600">A consultative, ROI-focused process to sell strategic value to engineering leadership.</p>
+            </div>
+             <div class="card">
+                <ol class="relative border-l border-gray-200">                  
+                    <li class="mb-10 ml-6">            
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white">
+                           <span class="text-primary font-bold">1</span>
+                        </span>
+                        <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Discovery & Qualification</h3>
+                        <p class="text-base font-normal text-gray-500">Confirm ICP fit and quantify the prospect's T3 pain points.</p>
+                    </li>
+                    <li class="mb-10 ml-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white">
+                            <span class="text-primary font-bold">2</span>
+                        </span>
+                        <h3 class="mb-1 text-lg font-semibold text-gray-900">Technical Demo & POV</h3>
+                        <p class="text-base font-normal text-gray-500">Showcase capabilities and prove ROI with a paid, time-bound pilot on the prospect's live data.</p>
+                    </li>
+                    <li class="mb-10 ml-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white">
+                           <span class="text-primary font-bold">3</span>
+                        </span>
+                        <h3 class="mb-1 text-lg font-semibold text-gray-900">Executive Business Case</h3>
+                        <p class="text-base font-normal text-gray-500">Present POV results and a full financial business case to the economic buyer (VP Eng/CTO).</p>
+                    </li>
+                    <li class="ml-6">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white">
+                           <span class="text-primary font-bold">4</span>
+                        </span>
+                        <h3 class="mb-1 text-lg font-semibold text-gray-900">Close & Partnership</h3>
+                        <p class="text-base font-normal text-gray-500">Navigate security and legal to close the deal and begin the value realization journey.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+        
+    </main>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Data Storage ---
+    const financialData = {
+        labels: ['R&D Productivity Loss', 'T3 Churn & Replacement', 'SLA Penalties & Customer Churn'],
+        values: [1350000, 450000, 200000]
+    };
+
+    const roiData = {
+        mttr: 25,
+        t3Escalations: 15,
+        rndTime: 20,
+        t2Escalations: 25
+    };
+
+    const marketGrowthData = {
+        labels: ['2023', '2025', '2027', '2029', '2031'],
+        datasets: [
+            { label: 'AIOps Platform Market', data: [13.5, 17.2, 21.8, 26.8, 32.5], color: '#0077B6' },
+            { label: 'Business Process Automation', data: [14.3, 17.5, 21.4, 26.2, 32.5], color: '#48CAE4' },
+            { label: 'AI in Bug Detection', data: [0.6, 1.3, 2.3, 3.2, 3.7], color: '#90E0EF' }
+        ]
+    };
+    
+    // --- Chart.js Global Config ---
+    Chart.defaults.font.family = 'Inter';
+    Chart.defaults.color = '#6C757D';
+
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        return Array.isArray(label) ? label.join(' ') : label;
+    };
+
+    const sharedOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                callbacks: { title: tooltipTitleCallback },
+                backgroundColor: '#343A40',
+                titleFont: { weight: 'bold' },
+                bodySpacing: 4,
+                padding: 12,
+                cornerRadius: 8
+            }
+        }
+    };
+    
+    // --- Chart Implementations ---
+
+    // Financial Impact Chart (Bar)
+    const financialImpactCtx = document.getElementById('financialImpactChart').getContext('2d');
+    new Chart(financialImpactCtx, {
+        type: 'bar',
+        data: {
+            labels: financialData.labels.map(l => l.split(' ')), // auto wrap
+            datasets: [{
+                label: 'Annual Cost ($)',
+                data: financialData.values,
+                backgroundColor: ['#0077B6', '#48CAE4', '#90E0EF'],
+                borderRadius: 4
+            }]
+        },
+        options: {
+            ...sharedOptions,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { callback: (value) => '$' + (value / 1000000) + 'M' }
+                }
+            },
+            plugins: {
+                ...sharedOptions.plugins,
+                title: {
+                    display: true,
+                    text: 'Annualized Hidden Costs of T3 Inefficiency ($)',
+                    font: { size: 16 },
+                    color: '#495057'
+                }
+            }
+        }
+    });
+
+    // ROI Doughnut Charts
+    const createDoughnutChart = (id, percentage, color, label) => {
+        new Chart(document.getElementById(id).getContext('2d'), {
+            type: 'doughnut',
+            data: {
+                labels: [label, ''],
+                datasets: [{
+                    data: [percentage, 100 - percentage],
+                    backgroundColor: [color, '#E9ECEF'],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4,
+                }]
+            },
+            options: {
+                ...sharedOptions,
+                cutout: '75%',
+                plugins: {
+                    ...sharedOptions.plugins,
+                    tooltip: { enabled: false }
+                }
+            },
+            plugins: [{
+                id: 'doughnut-center-text',
+                beforeDraw: (chart) => {
+                    let { width, height, ctx } = chart;
+                    ctx.restore();
+                    let fontSize = (height / 114).toFixed(2);
+                    ctx.font = "800 " + fontSize + "em Inter";
+                    ctx.textBaseline = "middle";
+                    let text = chart.data.datasets[0].data[0] + "%",
+                        textX = Math.round((width - ctx.measureText(text).width) / 2),
+                        textY = height / 2;
+                    ctx.fillStyle = color;
+                    ctx.fillText(text, textX, textY);
+                    ctx.save();
+                }
+            }]
+        });
+    };
+    createDoughnutChart('mttrChart', roiData.mttr, '#0077B6', 'MTTR Reduction');
+    createDoughnutChart('t3EscalationChart', roiData.t3Escalations, '#0096C7', 'T3 Escalations');
+    createDoughnutChart('rndTimeChart', roiData.rndTime, '#00B4D8', 'R&D Time');
+    createDoughnutChart('t2EscalationChart', roiData.t2Escalations, '#48CAE4', 'T2 Escalations');
+
+    // Market Growth Chart (Line)
+    const marketGrowthCtx = document.getElementById('marketGrowthChart').getContext('2d');
+    new Chart(marketGrowthCtx, {
+        type: 'line',
+        data: {
+            labels: marketGrowthData.labels,
+            datasets: marketGrowthData.datasets.map(ds => ({
+                label: ds.label,
+                data: ds.data,
+                borderColor: ds.color,
+                backgroundColor: ds.color + '1A',
+                fill: true,
+                tension: 0.4
+            }))
+        },
+        options: {
+            ...sharedOptions,
+            plugins: {
+                ...sharedOptions.plugins,
+                legend: { display: true, position: 'bottom', labels: { usePointStyle: true } }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { callback: (value) => '$' + value + 'B' }
+                }
+            }
+        }
+    });
+
+    // --- Interactivity ---
+
+    // Fade-in on scroll
+    const sections = document.querySelectorAll('.fade-in-section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+
+    // Navbar active link on scroll
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active-link', link.getAttribute('href').substring(1) === entry.target.id);
+                });
+            }
+        });
+    }, { rootMargin: "-50% 0px -50% 0px" });
+    document.querySelectorAll('section').forEach(section => navObserver.observe(section));
+});
+</script>
+</body>
+</html>
