@@ -71,7 +71,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -580,43 +580,46 @@
 
             <section class="section">
                 <h2>The Solution: Quantifiable ROI with Liberio AI</h2>
-                <p style="text-align: center; color: #666; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">Liberio AI acts as an autonomous virtual team member, performing end-to-end bug investigations to deliver transformative improvements and a clear, measurable return on investment.</p>
-                
-                <div class="solution-grid">
-                    <div class="chart-card">
+                <p style="text-align: center; color: #666; margin-bottom: 3rem; max-width: 900px; margin-left: auto; margin-right: auto;">Liberio AI acts as an autonomous virtual team member, performing end-to-end bug investigations to deliver transformative improvements and a clear, measurable return on investment.</p>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;">
+                  <div style="display: flex; gap: 2rem; width: 100%; justify-content: center;">
+                    <div class="chart-card" style="flex:1; min-width: 300px;">
                         <div class="doughnut-container">
                             <canvas id="mttrChart"></canvas>
                         </div>
                         <h3>Overall MTTR Reduction</h3>
                         <p>Boost operational efficiency and drastically improve customer satisfaction.</p>
                     </div>
-                    <div class="chart-card">
+                    <div class="chart-card" style="flex:1; min-width: 300px;">
                         <div class="doughnut-container">
                             <canvas id="t2EscalationChart"></canvas>
                         </div>
                         <h3>T2 to T3 Escalation Reduction</h3>
                         <p>Enrich the knowledge base to empower lower support tiers.</p>
                     </div>
-                    <div class="chart-card">
+                  </div>
+                  <div style="display: flex; gap: 2rem; width: 100%; justify-content: center;">
+                    <div class="chart-card" style="flex:1; min-width: 300px;">
                         <div class="doughnut-container">
                             <canvas id="t3EscalationChart"></canvas>
                         </div>
                         <h3>T3 to R&D Escalation Reduction</h3>
                         <p>Solve more issues at the T3 level, saving costly R&D cycles.</p>
                     </div>
-                    <div class="chart-card">
+                    <div class="chart-card" style="flex:1; min-width: 300px;">
                         <div class="doughnut-container">
                             <canvas id="rndTimeChart"></canvas>
                         </div>
                         <h3>R&D Diagnostic Time Reduction</h3>
                         <p>Deliver perfectly analyzed tickets so R&D can focus on fixing, not finding.</p>
                     </div>
+                  </div>
                 </div>
             </section>
 
             <section class="section">
                 <h2>A Multi-Billion Dollar Market Opportunity</h2>
-                <p style="text-align: center; color: #666; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">Liberio AI operates at the confluence of several massive, high-growth technology markets, all pointing to a sustained enterprise demand for AI-driven operational efficiency.</p>
+                <p style="text-align: center; color: #666; margin-bottom: 3rem; max-width: 900px; margin-left: auto; margin-right: auto;">Liberio AI operates at the confluence of several massive, high-growth technology markets, all pointing to a sustained enterprise demand for AI-driven operational efficiency.</p>
                 
                 <div class="chart-card">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
@@ -627,9 +630,9 @@
                             </div>
                         </div>
                         <div>
-                            <h3 style="text-align: center; margin-bottom: 1rem;">Liberio's High-Value Niche</h3>
+                            <h3 style="text-align: center; margin-bottom: 1rem;">Liberio's Bridge: Connecting CRM & Ticketing</h3>
                             <div class="chart-container" style="height: 300px;">
-                                <canvas id="marketSizeChart"></canvas>
+                                <canvas id="marketBridgeChart"></canvas>
                             </div>
                         </div>
                     </div>
@@ -637,31 +640,29 @@
             </section>
 
             <section class="section">
-                <h2>A Clear, Defensible Niche</h2>
-                <p style="text-align: center; color: #666; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">The market is bifurcated between R&D-focused "Builders" and broad "Monitors." Liberio AI uniquely dominates the unoccupied space as the first autonomous Production Specialist.</p>
-                
+                <h2>CRM & Ticketing: Liberio is the Bridge</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 3rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                  The enterprise landscape is dominated by CRM and ticketing systems. Liberio AI is the bridge—not a Monitor, not a Builder—connecting these worlds and unlocking true agentic support.
+                </p>
                 <div class="competitive-grid">
                     <div class="competitive-card">
-                        <h4 style="font-weight: bold; margin-bottom: 1rem; color: #666;">The "Monitors" (Passive Analysis)</h4>
-                        <p style="color: #666; margin-bottom: 1rem;">Broad platforms that tell you a problem exists.</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                            <span style="background: #e5e7eb; color: #374151; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem;">Datadog</span>
-                            <span style="background: #e5e7eb; color: #374151; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem;">Dynatrace</span>
-                            <span style="background: #e5e7eb; color: #374151; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem;">Splunk</span>
+                        <h4 style="font-weight: bold; margin-bottom: 1rem; color: #666;">CRM Systems</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                            <span style="background: #e5e7eb; color: #374151; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 1rem;">Salesforce</span>
+                            <span style="background: #e5e7eb; color: #374151; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 1rem;">HubSpot</span>
+                            <span style="background: #e5e7eb; color: #374151; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 1rem;">Zendesk</span>
                         </div>
                     </div>
                     <div class="competitive-card">
-                        <h4 style="font-weight: bold; margin-bottom: 1rem; color: #666;">The "Builders" (Code Generation)</h4>
-                        <p style="color: #666; margin-bottom: 1rem;">R&D-centric agents that create or fix code.</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                            <span style="background: #e5e7eb; color: #374151; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem;">Devin AI</span>
-                            <span style="background: #e5e7eb; color: #374151; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem;">SWE-agent</span>
-                            <span style="background: #e5e7eb; color: #374151; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem;">Bito</span>
+                        <h4 style="font-weight: bold; margin-bottom: 1rem; color: #666;">Ticketing Systems</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                            <span style="background: #e5e7eb; color: #374151; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 1rem;">Jira</span>
+                            <span style="background: #e5e7eb; color: #374151; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 1rem;">Monday</span>
                         </div>
                     </div>
                     <div class="liberio-highlight">
-                        <h4 style="font-size: 2rem; margin-bottom: 1rem;">Liberio AI: The Production Specialist</h4>
-                        <p style="font-size: 1.2rem;">The only autonomous agent that performs the end-to-end T3 investigation job in your live environment.</p>
+                        <h4 style="font-size: 2rem; margin-bottom: 1rem;">Liberio AI: The Bridge</h4>
+                        <p style="font-size: 1.2rem;">Liberio AI connects CRM and ticketing, automating the flow of context, diagnostics, and resolution between systems—eliminating the bottleneck and unlocking value.</p>
                     </div>
                 </div>
             </section>
@@ -696,8 +697,8 @@
                 <p style="font-size: 1.2rem; margin-bottom: 1rem;">
                     Liberio AI is pioneering Agentic Service Operations to build the future of autonomous support.
                 </p>
-                <a href="mailto:investors@liberio.ai" class="email-link">
-                    <i class="fas fa-envelope"></i> investors@liberio.ai
+                <a href="mailto:info@liberio.ai" class="email-link">
+                    <i class="fas fa-envelope"></i> info@liberio.ai
                 </a>
             </section>
         </div>
@@ -884,50 +885,56 @@
             }
         });
         
-        // Market Size Chart
-        new Chart(document.getElementById('marketSizeChart'), {
-            type: 'bubble',
+        // Market Bridge Chart (Horizontal Bar)
+        new Chart(document.getElementById('marketBridgeChart'), {
+            type: 'bar',
             data: {
-                datasets: [
-                    {
-                        label: 'AIOps Platforms ($27B)',
-                        data: [{x: 20, y: 30, r: 45}],
-                        backgroundColor: 'rgba(10, 147, 150, 0.6)'
-                    },
-                    {
-                        label: 'Intelligent Process Automation ($26B)',
-                        data: [{x: 45, y: 55, r: 42}],
-                        backgroundColor: 'rgba(148, 210, 189, 0.6)'
-                    },
-                    {
-                        label: 'AI in Software Testing ($10B)',
-                        data: [{x: 65, y: 25, r: 30}],
-                        backgroundColor: 'rgba(233, 216, 166, 0.6)'
-                    },
-                     {
-                        label: "Liberio's Niche ($7B+)",
-                        data: [{x: 42, y: 35, r: 25}],
-                        backgroundColor: 'rgba(238, 155, 0, 0.8)'
-                    }
-                ]
+                labels: ['CRM (Salesforce, HubSpot, Zendesk)', 'Liberio AI (Bridge)', 'Ticketing (Jira, Monday)'],
+                datasets: [{
+                    label: 'Agentic Value Flow',
+                    data: [100, 60, 100],
+                    backgroundColor: [
+                        'rgba(148, 210, 189, 0.8)',
+                        'rgba(238, 155, 0, 0.9)',
+                        'rgba(10, 147, 150, 0.8)'
+                    ],
+                    borderRadius: 20,
+                    barPercentage: 0.7,
+                    categoryPercentage: 0.7
+                }]
             },
             options: {
+                indexAxis: 'y',
                 ...sharedChartOptions,
                 plugins: {
-                     ...sharedChartOptions.plugins,
-                     legend: { display: true, position: 'bottom' },
-                     tooltip: {
+                    ...sharedChartOptions.plugins,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Liberio AI Bridges CRM and Ticketing',
+                        font: { size: 16 },
+                        color: '#333'
+                    },
+                    tooltip: {
                         callbacks: {
                             label: function(context) {
-                                return context.dataset.label;
+                                return context.dataset.label + ': ' + context.parsed.x;
                             }
                         }
-                     }
-                 },
-                 scales: {
-                     x: { display: false },
-                     y: { display: false }
-                 }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 120,
+                        grid: { display: false },
+                        ticks: { color: '#333', font: { weight: 'bold' } }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { color: '#333', font: { weight: 'bold' } }
+                    }
+                }
             }
         });
 
