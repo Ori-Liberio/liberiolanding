@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liberio.ai – Closing the Agentic T3 Gap</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f8fafc;
+            background: linear-gradient(135deg, #0a2233 0%, #1a2636 100%);
+            margin: 0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        header {
+            background: rgba(10, 34, 51, 0.95);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0 1.2rem 0;
+        }
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: #5fffd7;
+            text-shadow: 0 2px 12px #0a9396cc;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #e0f2f1;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #5fffd7;
+        }
+        .cta-button {
+            background: linear-gradient(90deg, #0A9396, #5fffd7);
+            color: #0a2233;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 24px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 16px #0a939633;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .cta-button:hover {
+            background: linear-gradient(90deg, #5fffd7, #0A9396);
+            box-shadow: 0 8px 24px #0a939655;
+        }
+        .hero {
+            text-align: center;
+            padding: 6rem 0 3rem 0;
+        }
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 2px 24px #0a9396cc;
+        }
+        .hero-desc {
+            font-size: 1.35rem;
+            color: #e0f2f1;
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+            font-weight: 400;
+        }
+        .main-diagram-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto 4rem auto;
+            padding: 2.5rem 0 2rem 0;
+        }
+        .bridge-diagram {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            position: relative;
+        }
+        .block {
+            background: linear-gradient(135deg, #1a2636 60%, #0a2233 100%);
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 20px;
+            padding: 2.5rem 2.5rem;
+            min-width: 180px;
+            text-align: center;
+            box-shadow: 0 4px 32px #0a939633;
+            z-index: 2;
+        }
+        .bridge {
+            background: linear-gradient(90deg, #0A9396 0%, #5fffd7 100%);
+            color: #0a2233;
+            font-size: 1.5rem;
+            font-weight: 900;
+            border-radius: 32px;
+            padding: 2.2rem 2.5rem;
+            margin: 0 -1.5rem;
+            box-shadow: 0 0 32px 8px #5fffd7cc, 0 2px 32px #0a9396cc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 3;
+            position: relative;
+        }
+        .bridge-glow {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            border-radius: 40px;
+            background: radial-gradient(circle, #5fffd7 0%, #0a9396 80%, transparent 100%);
+            filter: blur(32px);
+            opacity: 0.25;
+            z-index: 1;
+        }
+        .bridge-label {
+            position: relative;
+            z-index: 2;
+        }
+        .bridge-icon {
+            font-size: 2.2rem;
+            color: #0a2233;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 12px #5fffd7cc;
+        }
+        .bridge-caption {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 1.25rem;
+            color: #5fffd7;
+            font-weight: 700;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 12px #0a9396cc;
+        }
+        .value-points {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 3rem 0 0 0;
+            flex-wrap: wrap;
+        }
+        .value-point {
+            background: linear-gradient(135deg, #1a2636 60%, #0a2233 100%);
+            border-radius: 20px;
+            box-shadow: 0 2px 16px #0a939633;
+            padding: 2rem 2.2rem;
+            min-width: 260px;
+            max-width: 340px;
+            text-align: center;
+            color: #f8fafc;
+            margin-bottom: 1.5rem;
+        }
+        .value-point .icon {
+            font-size: 2.2rem;
+            color: #5fffd7;
+            margin-bottom: 0.7rem;
+            text-shadow: 0 2px 12px #0a9396cc;
+        }
+        .value-point .title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        .value-point .desc {
+            font-size: 1.08rem;
+            color: #e0f2f1;
+        }
+        .section {
+            background: #16202b;
+            border-radius: 32px;
+            box-shadow: 0 4px 32px #0a939633;
+            margin: 3rem 0;
+            padding: 3.5rem 2rem;
+        }
+        .section h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #5fffd7;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 12px #0a9396cc;
+        }
+        .section p {
+            font-size: 1.18rem;
+            color: #e0f2f1;
+            max-width: 900px;
+            margin: 0 auto 2rem auto;
+        }
+        .team-grid {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .team-member {
+            background: linear-gradient(135deg, #1a2636 60%, #0a2233 100%);
+            padding: 2rem 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            min-width: 320px;
+            max-width: 400px;
+            box-shadow: 0 2px 16px #0a939633;
+        }
+        .team-member h3 {
+            color: #5fffd7;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        .team-member .role {
+            color: #FFD6D6;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .email-link {
+            color: #5fffd7;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+        .email-link:hover {
+            opacity: 0.7;
+        }
+        footer {
+            background: #0a2233;
+            text-align: center;
+            padding: 2.5rem 0 1.5rem 0;
+            margin-top: 4rem;
+            color: #e0f2f1;
+            font-size: 1.1rem;
+        }
+        @media (max-width: 900px) {
+            .bridge-diagram { max-width: 98vw; }
+            .container { padding: 0 8px; }
+            .value-points { flex-direction: column; align-items: center; }
+        }
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2rem; }
+            .section h2 { font-size: 1.3rem; }
+            .section { padding: 2rem 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Liberio.ai</div>
+                <ul class="nav-links">
+                    <li><a href="#layers">Layers</a></li>
+                    <li><a href="#solution">Solution</a></li>
+                    <li><a href="#market">Market</a></li>
+                    <li><a href="#bridge">Bridge</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="cta-button">Invest Now</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-title">Liberio: The Bridge to Autonomous, Smart, High-Quality Support</div>
+                <div class="hero-desc">Liberio AI bridges the gap between CRM and ticketing systems, making the passage autonomous, smart, and the best gatekeeper for enterprise support.</div>
+            </div>
+        </section>
+        <section id="layers" class="main-diagram-section">
+            <div class="bridge-diagram">
+                <div class="block" style="box-shadow: 0 4px 32px #0a939655;">
+                    <i class="fas fa-database" style="color:#5fffd7;font-size:2rem;margin-bottom:0.5rem;"></i><br>
+                    CRM<br>
+                    <span style="font-size:1rem;font-weight:400;opacity:0.8;">(Salesforce, HubSpot, Zendesk)</span>
+                </div>
+                <div class="bridge">
+                    <div class="bridge-glow"></div>
+                    <div class="bridge-label">
+                        <span class="bridge-icon"><i class="fas fa-link"></i></span><br>
+                        Liberio<br>
+                        <span style="font-size:1.1rem;font-weight:400;opacity:0.8;">Autonomous, Smart, Gatekeeper</span>
+                    </div>
+                </div>
+                <div class="block" style="box-shadow: 0 4px 32px #0a939655;">
+                    <i class="fas fa-ticket-alt" style="color:#5fffd7;font-size:2rem;margin-bottom:0.5rem;"></i><br>
+                    Ticketing<br>
+                    <span style="font-size:1rem;font-weight:400;opacity:0.8;">(Jira, Monday)</span>
+                </div>
+            </div>
+            <div class="value-points">
+                <div class="value-point">
+                    <div class="icon"><i class="fas fa-bridge"></i></div>
+                    <div class="title">Liberio is the Bridge that</div>
+                    <div class="desc">Seamlessly connects CRM and ticketing, ensuring context and data flow without friction. Handling over optimally enriched support tickets.</div>
+                </div>
+                <div class="value-point">
+                    <div class="icon"><i class="fas fa-robot"></i></div>
+                    <div class="title">Autonomous & Smart</div>
+                    <div class="desc">Automates the passage, enriches tickets, and applies intelligence to every transition.</div>
+                </div>
+                <div class="value-point">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="title">The Best Gatekeeper</div>
+                    <div class="desc">Ensures only high-quality, context-rich tickets reach engineering—reducing noise and boosting efficiency.</div>
+                </div>
+            </div>
+            <div class="bridge-caption">
+                Liberio AI closes the agentic Tier 3 gap—making enterprise support truly seamless, autonomous, and high-velocity.
+            </div>
+        </section>
+        <section id="how-it-works" class="section">
+            <h2>How it Works</h2>
+            <p>Liberio is an AI-powered virtual team member that automates the end-to-end job of a T3 support engineer.</p>
+            <div style="display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:2rem;">
+                <div style="background:linear-gradient(135deg, #1a2636 60%, #0a2233 100%);padding:2rem 2.5rem;border-radius:20px;min-width:280px;max-width:350px;box-shadow:0 2px 16px #0a939633;">
+                    <h4 style="color:#5fffd7;margin-bottom:1rem;font-size:1.3rem;"><i class="fas fa-search" style="margin-right:0.5rem;"></i>Autonomous Investigation</h4>
+                    <p style="color:#e0f2f1;font-size:1.08rem;margin:0;">Performs deep, technical analysis of production issues across logs, metrics, and traces.</p>
+                </div>
+                <div style="background:linear-gradient(135deg, #1a2636 60%, #0a2233 100%);padding:2rem 2.5rem;border-radius:20px;min-width:280px;max-width:350px;box-shadow:0 2px 16px #0a939633;">
+                    <h4 style="color:#5fffd7;margin-bottom:1rem;font-size:1.3rem;"><i class="fas fa-ban" style="margin-right:0.5rem;"></i>Eliminates the "Hot Potato"</h4>
+                    <p style="color:#e0f2f1;font-size:1.08rem;margin:0;">Delivers engineer-intuitive, pre-analyzed tickets to R&D, only when necessary.</p>
+                </div>
+                <div style="background:linear-gradient(135deg, #1a2636 60%, #0a2233 100%);padding:2rem 2.5rem;border-radius:20px;min-width:280px;max-width:350px;box-shadow:0 2px 16px #0a939633;">
+                    <h4 style="color:#5fffd7;margin-bottom:1rem;font-size:1.3rem;"><i class="fas fa-cogs" style="margin-right:0.5rem;"></i>Knowledge Flywheel</h4>
+                    <p style="color:#e0f2f1;font-size:1.08rem;margin:0;">Continuously enriches your knowledge base with new procedures generated from resolved issues, upskilling your entire support organization.</p>
+                </div>
+            </div>
+            <div style="margin-top:3rem;background:linear-gradient(135deg, #1a2636 60%, #0a2233 100%);padding:2.5rem;border-radius:20px;box-shadow:0 2px 16px #0a939633;">
+                <h3 style="color:#5fffd7;font-size:1.5rem;margin-bottom:1.5rem;text-align:center;"><i class="fas fa-server" style="margin-right:0.5rem;"></i>Technical Integration</h3>
+                <p style="color:#e0f2f1;font-size:1.18rem;margin-bottom:1.5rem;text-align:center;">Liberio gets a dedicated user and is deployed securely within your VPC.</p>
+                <p style="color:#e0f2f1;font-size:1.18rem;text-align:center;">It connects to your existing infrastructure: <strong style="color:#5fffd7;">CRM</strong>, <strong style="color:#5fffd7;">ticketing systems</strong>, <strong style="color:#5fffd7;">code repositories</strong>, <strong style="color:#5fffd7;">Monitoring tools</strong>, fitting naturally into your natural workflows and procedures.</p>
+            </div>
+        </section>
+        <section id="solution" class="section">
+            <h2>Quantifiable ROI: Impact Across the Bridge</h2>
+            <p>Liberio AI targets the Tier 3 bottleneck, unlocking value and velocity for the entire support structure. See the measurable impact below.</p>
+            <div style="text-align:center;margin:2rem 0;">
+                <h3 style="color:#5fffd7;font-size:1.5rem;margin-bottom:2rem;">Estimated ROI from Early Pilots:</h3>
+                <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;">
+                    <div style="background:linear-gradient(135deg, #1a2636 60%, #0a2233 100%);padding:2rem 2.5rem;border-radius:20px;min-width:220px;box-shadow:0 2px 16px #0a939633;text-align:center;">
+                        <div style="color:#5fffd7;font-size:2.5rem;font-weight:900;margin-bottom:0.5rem;">25%</div>
+                        <div style="color:#e0f2f1;font-size:1.1rem;">Overall MTTR Reduction</div>
+                    </div>
+                    <div style="background:linear-gradient(135deg, #1a2636 60%, #0a2233 100%);padding:2rem 2.5rem;border-radius:20px;min-width:220px;box-shadow:0 2px 16px #0a939633;text-align:center;">
+                        <div style="color:#5fffd7;font-size:2.5rem;font-weight:900;margin-bottom:0.5rem;">20%</div>
+                        <div style="color:#e0f2f1;font-size:1.1rem;">Reduction in R&D Diagnostic Time</div>
+                    </div>
+                    <div style="background:linear-gradient(135deg, #1a2636 60%, #0a2233 100%);padding:2rem 2.5rem;border-radius:20px;min-width:220px;box-shadow:0 2px 16px #0a939633;text-align:center;">
+                        <div style="color:#5fffd7;font-size:2.5rem;font-weight:900;margin-bottom:0.5rem;">15%</div>
+                        <div style="color:#e0f2f1;font-size:1.1rem;">Reduction in T3 to R&D Escalations</div>
+                    </div>
+                    <div style="background:linear-gradient(135deg, #1a2636 60%, #0a2233 100%);padding:2rem 2.5rem;border-radius:20px;min-width:220px;box-shadow:0 2px 16px #0a939633;text-align:center;">
+                        <div style="color:#5fffd7;font-size:2.5rem;font-weight:900;margin-bottom:0.5rem;">25%</div>
+                        <div style="color:#e0f2f1;font-size:1.1rem;">Reduction in T2 to T3 Escalations</div>
+                    </div>
+                </div>
+            </div>
+            <!-- You can add your charts or impact metrics here -->
+        </section>
+        <section id="market" class="section">
+            <h2>A Multi-Billion Dollar Market Opportunity</h2>
+            <p>Liberio AI operates at the confluence of several massive, high-growth technology markets, all pointing to a sustained enterprise demand for AI-driven operational efficiency.</p>
+            <p>We operate at the confluence of massive, high-growth markets, fueled by irreversible macro trends.</p>
+            <div style="background:linear-gradient(135deg, #1a2636 60%, #0a2233 100%);padding:2.5rem;border-radius:20px;margin:2rem 0;box-shadow:0 2px 16px #0a939633;">
+                <h3 style="color:#5fffd7;font-size:1.5rem;margin-bottom:1rem;">Massive TAM</h3>
+                <p style="color:#e0f2f1;font-size:1.18rem;margin-bottom:1.5rem;">Our enlarged Total Addressable Market exceeds <strong style="color:#5fffd7;">$7.2 Billion</strong>, validated by tailwinds from AIOps ($27B), Process Automation ($26B), and AI in Testing ($10B) markets.</p>
+            </div>
+            <div style="margin:2rem 0;">
+                <h3 style="color:#5fffd7;font-size:1.5rem;margin-bottom:1.5rem;">Macro Tailwinds:</h3>
+                <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;">
+                    <div style="background:linear-gradient(135deg, #1a2636 60%, #0a2233 100%);padding:2rem 2.5rem;border-radius:20px;min-width:280px;max-width:350px;box-shadow:0 2px 16px #0a939633;">
+                        <h4 style="color:#5fffd7;margin-bottom:1rem;font-size:1.3rem;"><i class="fas fa-chart-line" style="margin-right:0.5rem;"></i>Rising IT Complexity</h4>
+                        <p style="color:#e0f2f1;font-size:1.08rem;margin:0;">Makes manual investigation impossible.</p>
+                    </div>
+                    <div style="background:linear-gradient(135deg, #1a2636 60%, #0a2233 100%);padding:2rem 2.5rem;border-radius:20px;min-width:280px;max-width:350px;box-shadow:0 2px 16px #0a939633;">
+                        <h4 style="color:#5fffd7;margin-bottom:1rem;font-size:1.3rem;"><i class="fas fa-robot" style="margin-right:0.5rem;"></i>The AI-Driven SDLC</h4>
+                        <p style="color:#e0f2f1;font-size:1.08rem;margin:0;">Creates the "Agentic Velocity Gap" that necessitates our solution.</p>
+                    </div>
+                    <div style="background:linear-gradient(135deg, #1a2636 60%, #0a2233 100%);padding:2rem 2.5rem;border-radius:20px;min-width:280px;max-width:350px;box-shadow:0 2px 16px #0a939633;">
+                        <h4 style="color:#5fffd7;margin-bottom:1rem;font-size:1.3rem;"><i class="fas fa-arrow-up" style="margin-right:0.5rem;"></i>Shift to Proactive Ops</h4>
+                        <p style="color:#e0f2f1;font-size:1.08rem;margin:0;">Frees up engineers for high-value work.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add market charts or stats here -->
+        </section>
+        <section id="bridge" class="section">
+            <h2>CRM & Ticketing: Liberio is the Bridge</h2>
+            <p>The enterprise landscape is dominated by CRM and ticketing systems. Liberio AI is the bridge—not a Monitor, not a Builder—connecting these worlds and unlocking true agentic support.</p>
+            <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;">
+                <div style="background:#1a2636;padding:2rem 2.5rem;border-radius:20px;min-width:220px;box-shadow:0 2px 16px #0a939633;">
+                    <h4 style="color:#5fffd7;margin-bottom:0.5rem;">CRM Systems</h4>
+                    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
+                        <span style="background:#0a2233;color:#5fffd7;padding:0.5rem 1rem;border-radius:0.5rem;font-size:1rem;">Salesforce</span>
+                        <span style="background:#0a2233;color:#5fffd7;padding:0.5rem 1rem;border-radius:0.5rem;font-size:1rem;">HubSpot</span>
+                        <span style="background:#0a2233;color:#5fffd7;padding:0.5rem 1rem;border-radius:0.5rem;font-size:1rem;">Zendesk</span>
+                    </div>
+                </div>
+                <div style="background:#1a2636;padding:2rem 2.5rem;border-radius:20px;min-width:220px;box-shadow:0 2px 16px #0a939633;">
+                    <h4 style="color:#5fffd7;margin-bottom:0.5rem;">Ticketing Systems</h4>
+                    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
+                        <span style="background:#0a2233;color:#5fffd7;padding:0.5rem 1rem;border-radius:0.5rem;font-size:1rem;">Jira</span>
+                        <span style="background:#0a2233;color:#5fffd7;padding:0.5rem 1rem;border-radius:0.5rem;font-size:1rem;">Monday</span>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2rem;font-size:1.2rem;color:#5fffd7;font-weight:700;">
+                Liberio AI connects CRM and ticketing, automating the flow of context, diagnostics, and resolution between systems—eliminating the bottleneck and unlocking value.
+            </div>
+        </section>
+        <section id="team" class="section">
+            <h2>Proven Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Ori Reshef</h3>
+                    <div class="role">CEO & Co-Founder</div>
+                    <p>Seasoned B2B leader with extensive R&D management experience. Spearheaded innovative initiatives for NICE and SAP, drove growth at LivePerson, Clicktale, TaKaDu, and Varada as VP Product and Chief Solutions Officer. Deep expertise in enterprise software and AI solutions.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Tal Ben-Moshe</h3>
+                    <div class="role">CTO & Co-Founder</div>
+                    <p>Over 20 years of deep tech leadership. Co-founded Varada (acquired by Starburst) and served as Chief Software Architect at Dell EMC XtremIO. Led development of innovative data infrastructure solutions with profound impact on cutting-edge technologies.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="section" style="background:linear-gradient(90deg,#0A9396,#5fffd7);color:#0a2233;text-align:center;">
+            <h2 style="color:#0a2233;">Ready to close the velocity gap?</h2>
+            <p style="font-size:1.2rem;margin-bottom:1rem;">Liberio AI is pioneering Agentic Service Operations to build the future of autonomous support.</p>
+            <a href="mailto:info@liberio.ai" class="email-link" style="color:#0a2233;"><i class="fas fa-envelope"></i> info@liberio.ai</a>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Liberio.ai. All rights reserved. | Intelligent Support for the AI-Driven Software Era</p>
+        </div>
+    </footer>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
